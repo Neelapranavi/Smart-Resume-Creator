@@ -1,0 +1,9 @@
+smart-resume-generator/
+│── static/            # CSS & JS Files
+│   ├── style.css      # Styling
+│── templates/         # HTML Files
+│   ├── index.html     # Homepage (Form)
+│── output/            # Resume PDF Folder
+│── app.py             # Main Flask Backend
+│── requirements.txt   # Dependencies
+│── README.md          # Project Description
