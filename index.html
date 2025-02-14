@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Resume Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Smart Resume Generator</h2>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="summary">Summary:</label>
+            <textarea id="summary" name="summary" required></textarea>
+
+            <label for="education">Education:</label>
+            <textarea id="education" name="education" required></textarea>
+
+            <label for="experience">Experience:</label>
+            <textarea id="experience" name="experience" required></textarea>
+
+            <label for="skills">Skills:</label>
+            <textarea id="skills" name="skills" required></textarea>
+
+            <label for="languages">Languages Known:</label>
+            <textarea id="languages" name="languages" required></textarea>
+
+            <label for="certifications">Certifications:</label>
+            <textarea id="certifications" name="certifications"></textarea>
+
+            <label for="references">References:</label>
+            <textarea id="references" name="references"></textarea>
+
+            <label for="linkedin">LinkedIn:</label>
+            <input type="text" id="linkedin" name="linkedin">
+
+            <label for="github">GitHub:</label>
+            <input type="text" id="github" name="github">
+
+            <label for="website">Personal Website:</label>
+            <input type="text" id="website" name="website">
+
+            <label for="projects">Projects:</label>
+            <textarea id="projects" name="projects"></textarea>
+
+            <!-- Upload Photo Section -->
+            <label for="photo">Upload Photo:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" onchange="previewPhoto(event)">
+            <img id="photoPreview" style="display:none; width: 100px; height: 100px; margin-top: 10px; border-radius: 50%;">
+
+            <button type="submit">Generate Resume</button>
+        </form>
+    </div>
+
+    <script>
+        function previewPhoto(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('photoPreview');
+                output.src = reader.result;
+                output.style.display = "block";
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>
